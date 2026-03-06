@@ -82,9 +82,11 @@ Upcoming Updates (version 2):
 - Improve crisis detection and response 
 
 Goal: 
-This project is designed to provide reliable access to critical information for veterans experiencing homelessness or are facing housing insecurity in Chicago. 
-The assistant draws on collected information to provide information at a person's time of greatest need-the loss of basic human needs. 
-It prioritizes accuracy, concise responses and verified sources to reduce the risk of misinformation. 
+The goal of this project is to build ethical AI tools that connect vunerable populations to real services quickly and safely. 
+
+Data Sources: 
+A Safer Haven Veteran Resources Guide
+Chicago Mayor's Office of Veteran Affairs Resource Guide 
 
 License
 This project is licensed under the GNU General Public License. 

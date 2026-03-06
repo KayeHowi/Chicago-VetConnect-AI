@@ -208,7 +208,7 @@ __marimo__/
 
 # Vector databases
 data/vectordb/
-data/vector_db
+data/vector_db/
 
 # Model Cache
 .cache/

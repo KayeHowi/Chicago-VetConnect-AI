@@ -1,5 +1,5 @@
 # Chicago VetConnect AI (Version 1)
-AI powered resource assistant helping Chicago military veterans quickly find housing, healthcare, and support services within Chicago and the Greater Chicago area. 
+AI powered resource assistant helping Chicago military veterans quickly find verified housing, healthcare, and support services within Chicago and the Greater Chicago area. This assistant uses offical government and non profit data. 
 
 This project uses Retrieval Augmented Generation (RAG) to provide grounded answers based on verified documents from local and federal veteran support organizations. 
 

@@ -1,4 +1,4 @@
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from .embed import get_embeddings
 from .config import vector_db_dir
 

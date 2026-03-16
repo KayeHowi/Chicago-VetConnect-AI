@@ -31,11 +31,13 @@ If you're in need of mental health support, you can call the Veteran's Crisis li
 or text 838255. You can also call 311 for non-emergency assistance in Chicago."""
     retriever = get_retriever()
     llm = get_llm()
-    docs = retriever.get_relevant_documents(question)
+    
+    qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever, chain_type_kwargs={"prompt": build_prompt()}, return_source_documents=True)
+    result = qa_chain.invoke({"query": question})
+    answer = result["result"]
+    docs = result["source_documents"]
     if len(docs) == 0:
         return """I'm sorry, I couldn't find any information related to your question. Please try another question."""
-    qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever, chain_type_kwargs={"prompt": build_prompt()}, return_source_documents=True)
-    answer = qa_chain.run(question)
 
     sources =set()
     for doc in docs:
@@ -47,7 +49,7 @@ or text 838255. You can also call 311 for non-emergency assistance in Chicago.""
         citation_text += f" - {s}\n"
 
     footer =  """
-    "\n\nIf this is an emergency:
+    \n\nIf this is an emergency:
     Please call 911 immediately. 
     You can also call the Veteran's Crisis line at 988 (Press 1)
     If in Chicago, call city services at 311 for emergency shelter assistance and other non ememrgency resources.

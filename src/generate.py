@@ -23,7 +23,7 @@ Answer:
 def get_llm():
     llm = ChatGroq(
         model=llm_model,
-        api_key=os.getenv("GROQ_API_KEY"),
+        groq_api_key=os.getenv("GROQ_API_KEY"),
         temperature=0
     )
     return llm

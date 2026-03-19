@@ -18,10 +18,10 @@ def ingest_docs():
         chunk_overlap=200
     )
     chunks = splitter.split_documents(documents)
-
+#  do not add an s to embedding. I keep doing that and breaking things. This is the 3rd time! Stop it! 
     Chroma.from_documents(
         documents=chunks,
-        embeddings=get_embeddings(),
+        embedding=get_embeddings(),
         persist_directory=vector_db_dir
     )
 

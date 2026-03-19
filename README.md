@@ -1,3 +1,12 @@
+---
+title: Chicago VetConnect AI
+emoji: 🎖️
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+---
+
 # Chicago VetConnect AI 
 
 An AI powered assistant designed to help military veterans in Chicago find verified local resources such as housing, healthcare, and support services. 

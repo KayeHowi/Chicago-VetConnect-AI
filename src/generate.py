@@ -1,3 +1,4 @@
+from aiofiles import os
 from langchain_groq import ChatGroq
 from langchain_core.prompts import PromptTemplate 
 from .config import groq_api_key, llm_model
@@ -22,7 +23,7 @@ Answer:
 def get_llm():
     llm = ChatGroq(
         model=llm_model,
-        groq_api_key=groq_api_key,
+        api_key=os.getenv("GROQ_API_KEY"),
         temperature=0
     )
     return llm

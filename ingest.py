@@ -1,28 +1,30 @@
-from langchain_community.document_loaders import DirectoryLoader
+from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_chroma import Chroma 
+from langchain_chroma import Chroma
 from src.embed import get_embeddings
 from src.config import vector_db_dir
+import os
 
 def ingest_docs():
-    
-    loader = DirectoryLoader("data/raw", glob="**/*.pdf")
-    documents = loader.load()
+    pdf_folder = "data/raw"
+    documents = []
+    for file in os.listdir(pdf_folder):
+        if file.endswith(".pdf"):
+            loader = PyPDFLoader(os.path.join(pdf_folder, file))
+            documents.extend(loader.load())
 
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size = 1000,
-        chunk_overlap = 200
+        chunk_size=1000,
+        chunk_overlap=200
     )
-
     chunks = splitter.split_documents(documents)
 
-    vectordb = Chroma.from_documents(
+    Chroma.from_documents(
         documents=chunks,
-        embedding=get_embeddings(), 
+        embedding_function=get_embeddings(),
         persist_directory=vector_db_dir
-    
     )
- 
 
 if __name__ == "__main__":
     ingest_docs()
+    

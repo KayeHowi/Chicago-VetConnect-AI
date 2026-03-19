@@ -21,10 +21,9 @@ def ingest_docs():
 
     Chroma.from_documents(
         documents=chunks,
-        embedding_function=get_embeddings(),
+        embeddings=get_embeddings(),
         persist_directory=vector_db_dir
     )
 
 if __name__ == "__main__":
     ingest_docs()
-    

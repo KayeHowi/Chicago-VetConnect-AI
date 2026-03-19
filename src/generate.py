@@ -1,4 +1,4 @@
-from aiofiles import os
+import os
 from langchain_groq import ChatGroq
 from langchain_core.prompts import PromptTemplate 
 from .config import groq_api_key, llm_model

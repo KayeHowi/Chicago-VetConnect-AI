@@ -1,5 +1,4 @@
-from langchain_ollama import OllamaEmbeddings
-from .config import embed_model 
+from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 
 def get_embeddings():
-    return OllamaEmbeddings (model = embed_model)
+    return HuggingFaceEmbeddings(model_name = "sentence-transformers/all-mpnet-base-v2")

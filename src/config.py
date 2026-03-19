@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-embed_model = "nomic-embed-text"
 llm_model = "llama-3.1-8b-instant"
 
 vector_db_dir = "data/vectordb"

@@ -6,7 +6,7 @@ from src.config import vector_db_dir
 
 def ingest_docs():
     
-    loader = DirectoryLoader("data", glob="**/*.pdf")
+    loader = DirectoryLoader("data/raw", glob="**/*.pdf")
     documents = loader.load()
 
     splitter = RecursiveCharacterTextSplitter(

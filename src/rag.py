@@ -2,6 +2,7 @@ from asyncio.log import logger
 from langchain_classic.chains import RetrievalQA
 from .retrieve import get_retriever
 from .generate import build_prompt, get_llm 
+import os 
 
 crisis_phrases = [
     "I want to kill myself", 
@@ -39,9 +40,9 @@ or text 838255. You can also call 311 for non-emergency assistance in Chicago.""
     if len(docs) == 0:
         return """I'm sorry, I couldn't find any information related to your question. Please try another question."""
 
-    sources =set()
+    sources = set()
     for doc in docs:
-        source = doc.metadata.get("source", "Resource document")
+        source = os.path.basename(doc.metadata.get("source", "Resource document"))
         sources.add(source)
 
     citation_text = "\n\nSources:\n"

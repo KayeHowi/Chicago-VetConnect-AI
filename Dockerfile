@@ -7,6 +7,8 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
+RUN chmod +x start.sh
+
 EXPOSE 7860
 
-CMD ["sh", "-c", "python ingest.py && uvicorn src.main:app --host 0.0.0.0 --port 8000 & sleep 30 && python gradio_app.py"]
+CMD ["sh", "start.sh"]

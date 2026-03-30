@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 7860
 
-CMD ["sh", "-c", "python ingest.py && uvicorn src.main:app --host 0.0.0.0 --port 8000 & python gradio_app.py"]
+CMD ["sh", "-c", "python ingest.py && uvicorn src.main:app --host 0.0.0.0 --port 8000 & sleep 10 && python gradio_app.py"]
